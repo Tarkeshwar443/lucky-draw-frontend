@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="flexVerticalCenter">
+  <div style="width: 35%">Lucky Draw App</div>
+  <div style="display: flex; justify-content: center; width: 29%">
+    <div style="display: flex">
+      <div class="navButton" routerLink="/prizeDashboard">Prize Dashboard</div>
+      <div class="navButton" routerLink="/createEvent">Add event</div>
+    </div>
+  </div>
+  <div></div>
+</mat-toolbar>
+<div class="flexHorCenter" style="height: 88%; margin-top: 10px">
+  <mat-card style="width: 60%"><router-outlet></router-outlet></mat-card>
+</div>
