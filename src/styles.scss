@@ -36,3 +36,6 @@ body {
   height: 87%;
   padding: 10px 10px;
 }
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: white;
+}

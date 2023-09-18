@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'createEvent', component: CreateEventsComponent },
   { path: 'prizeDashboard', component: PrizeDashboardComponent },
   { path: 'winnerpopup', component: WinnerPopupComponent },
-  { path: '', redirectTo: 'prizeDashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'createEvent', pathMatch: 'full' },
 ];
 
 @NgModule({
