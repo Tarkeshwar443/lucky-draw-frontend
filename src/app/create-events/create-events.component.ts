@@ -7,9 +7,15 @@ import { CommonService } from '../common.service';
   styleUrls: ['./create-events.component.scss'],
 })
 export class CreateEventsComponent {
-  eventName: string = 'asfasf';
+  employeeList: File | undefined;
+  prizeList: File | undefined;
   constructor(public comSvc: CommonService) {}
-  ngOnInit() {
-    console.log(this.eventName);
+  ngOnInit() {}
+  uploadFile(fileType: any, file: any) {
+    console.log(fileType, file);
+  }
+  checkValidation() {
+    if (this.comSvc.eventName.trim() != '') return false;
+    return true;
   }
 }

@@ -1,51 +1,114 @@
-<div class="flexHorCenter" style="margin-top: 10px; width: 100%; height: 100%">
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+    background-color: rgb(238, 238, 79);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    height: 500px;
+    width: 900px;
+    padding: 40px 10px;
+  "
+>
+  <div
+    style="
+      font-size: 50px;
+      font-family: Segoe Print;
+      text-decoration: underline;
+    "
+  >
+    {{ comSvc.eventName }}
+  </div>
   <div
     style="
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      width: 70%;
-      row-gap: 30px;
-      height: 100%;
+      width: 700px;
+      height: 600px;
     "
   >
-    <h1 style="font-size: 50px">{{ comSvc.eventName }}</h1>
-    <div style="display: flex; flex-direction: column; align-items: center">
-      <button mat-flat-button color="primary" (click)="startTimer()">
-        Spin Me!
-      </button>
-      <p style="color: red">Remaining prizes: 10</p>
-    </div>
     <div
       style="
-        width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        height: 100%;
+        row-gap: 30px;
       "
     >
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <button mat-flat-button color="primary" (click)="startTimer()">
+          Spin Me!
+        </button>
+        <p style="color: red">Remaining prizes: 10</p>
+      </div>
       <div style="height: 100%; font-size: 50px; color: red">
         {{ this.counter }}
       </div>
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          width: 40%;
-          row-gap: 100px;
-          height: 100%;
-        "
-      >
-        <div style="display: flex; flex-direction: column; height: 100%">
-          <div style="text-align: right">Employee name</div>
-          <div style="text-align: right">Employee id</div>
-        </div>
-        <div style="display: flex; flex-direction: column; height: 100%">
-          <div style="text-align: left">{{ winnerName }}</div>
-          <div style="text-align: left">{{ winnerId }}</div>
-        </div>
-      </div>
     </div>
+    <table width="500px">
+      <tr>
+        <th>S.No</th>
+        <th>Employee name</th>
+        <th>Employee id</th>
+        <th>Prize</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Tarkeshwar Singh</td>
+        <td>215489700</td>
+        <td>TV</td>
+      </tr>
+    </table>
   </div>
 </div>

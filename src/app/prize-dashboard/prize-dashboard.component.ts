@@ -19,8 +19,8 @@ export class PrizeDashboardComponent {
       clearInterval(this.interval);
       this.counter = 5;
       const dialogRef = this.dialog.open(WinnerPopupComponent, {
-        height: '200px',
-        width: '200px',
+        height: '400px',
+        width: '400px',
         data: 'Congratulations',
       });
     }

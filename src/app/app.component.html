@@ -6,7 +6,6 @@
       <div class="navButton" routerLink="/createEvent">Add event</div>
     </div>
   </div>
-  <div></div>
 </mat-toolbar>
 <div
   style="
@@ -14,16 +13,9 @@
     justify-content: center;
     align-items: center;
     height: 90%;
+    width: 100%;
+    background-image: url(../assets/img/background.jpg);
   "
 >
-  <mat-card
-    style="
-      width: 60%;
-      height: 88%;
-      justify-content: center;
-      align-items: center;
-    "
-    ><mat-card-content style="width: 100%; height: 100%; align-items: center"
-      ><router-outlet></router-outlet></mat-card-content
-  ></mat-card>
+  <router-outlet></router-outlet>
 </div>

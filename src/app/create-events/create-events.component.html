@@ -3,7 +3,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 120px;
+    background-color: rgb(238, 238, 79);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    height: 300px;
+    width: 700px;
+    padding: 40px 10px;
   "
 >
   <div
@@ -12,9 +17,7 @@
       flex-direction: column;
       align-items: center;
       height: 80%;
-      padding: 20px 20px;
-      width: 100%;
-      row-gap: 30px;
+      row-gap: 40px;
     "
   >
     <div
@@ -22,14 +25,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 60%;
-        margin-bottom: -30px;
+        width: 100%;
       "
     >
-      <div style="text-align: right">Event name</div>
-      <mat-form-field style="width: 30%; background-color: white">
-        <input matInput [(ngModel)]="comSvc.eventName" />
-      </mat-form-field>
+      <div style="width: 60%; font-size: 17px; font-weight: 500">
+        Event name
+      </div>
+      <input style="width: 76%" [(ngModel)]="comSvc.eventName" />
     </div>
 
     <div
@@ -37,23 +39,32 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 60%;
+        column-gap: 20px;
       "
     >
-      <div style="text-align: right">{{ comSvc.eventName }}</div>
+      <div style="width: 45%; font-size: 17px; font-weight: 500">
+        Employee list
+      </div>
       <div
         style="
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 30%;
+          width: 70%;
         "
       >
         <div>
           <button type="button" mat-raised-button (click)="fileInput.click()">
             Choose File
           </button>
-          <input hidden #fileInput type="file" id="file" />
+          <input
+            hidden
+            (change)="uploadFile('employeeList', $event)"
+            #fileInput
+            type="file"
+            id="file"
+            accept=".xls,.xlsx"
+          />
         </div>
         <mat-icon>cloud_upload</mat-icon>
       </div>
@@ -63,29 +74,47 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 60%;
+        column-gap: 10px;
+        width: 100%;
+        margin-bottom: 20px;
       "
     >
-      <div style="text-align: right">Prize list</div>
+      <div style="width: 50%; font-size: 20px; font-weight: 500">
+        Prize list
+      </div>
       <div
         style="
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 30%;
+          width: 70%;
         "
       >
         <div>
           <button type="button" mat-raised-button (click)="fileInput.click()">
             Choose File
           </button>
-          <input hidden #fileInput type="file" id="file" />
+          <input
+            hidden
+            (change)="uploadFile('prizeList', $event)"
+            #fileInput
+            type="file"
+            id="file"
+            accept=".xls,.xlsx"
+          />
         </div>
         <mat-icon>cloud_upload</mat-icon>
       </div>
     </div>
   </div>
   <div style="display: flex; align-items: center; justify-content: center">
-    <button mat-flat-button color="primary">Submit</button>
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="checkValidation()"
+      routerLink="/prizeDashboard"
+    >
+      Submit
+    </button>
   </div>
 </div>
