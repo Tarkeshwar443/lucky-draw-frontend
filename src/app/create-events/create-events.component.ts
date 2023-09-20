@@ -7,15 +7,44 @@ import { CommonService } from '../common.service';
   styleUrls: ['./create-events.component.scss'],
 })
 export class CreateEventsComponent {
-  employeeList: File | undefined;
-  prizeList: File | undefined;
+  employeeListFileName: string = '';
+  prizeListFileName: string = '';
+  employeeList: any = '';
+  prizeList: any = '';
   constructor(public comSvc: CommonService) {}
   ngOnInit() {}
   uploadFile(fileType: any, file: any) {
-    console.log(fileType, file);
+    const action: string = fileType;
+    switch (fileType) {
+      case 'employeeList':
+        this.employeeList = file.target.files[0];
+        this.employeeListFileName = file.target.files[0].name;
+        break;
+      case 'prizeList':
+        this.prizeList = file.target.files[0];
+        this.prizeListFileName = file.target.files[0].name;
+        break;
+    }
   }
   checkValidation() {
-    if (this.comSvc.eventName.trim() != '') return false;
+    if (
+      this.comSvc.eventName.trim() != '' &&
+      this.prizeListFileName &&
+      this.employeeListFileName
+    )
+      return false;
     return true;
+  }
+  uploadFiles() {
+    let excelObj = new FormData();
+    excelObj.append('file', this.employeeList);
+    this.comSvc.uploadFiles(excelObj).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
   }
 }
