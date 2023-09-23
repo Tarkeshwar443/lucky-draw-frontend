@@ -42,73 +42,29 @@
         <button mat-flat-button color="primary" (click)="startTimer()">
           Spin Me!
         </button>
-        <p style="color: red">Remaining prizes: 10</p>
+        <p style="color: red">Remaining prizes: {{ idx }}</p>
       </div>
       <div style="height: 100%; font-size: 50px; color: red">
         {{ this.counter }}
       </div>
     </div>
     <table width="500px">
-      <tr>
-        <th>S.No</th>
-        <th>Employee name</th>
-        <th>Employee id</th>
-        <th>Prize</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Tarkeshwar Singh</td>
-        <td>215489700</td>
-        <td>TV</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Employee name</th>
+          <th>Employee id</th>
+          <th>Prize</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let winner of winnersList">
+          <td>{{ winner["sno"] }}</td>
+          <td>{{ winner["employeeName"] }}</td>
+          <td>{{ winner["employeeId"] }}</td>
+          <td>{{ winner["prize"] }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

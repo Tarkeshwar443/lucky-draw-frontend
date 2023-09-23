@@ -7,11 +7,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./winner-popup.component.scss'],
 })
 export class WinnerPopupComponent {
-  popMsg: string = '';
+  employeeName: string = '';
+  employeeId: number = 0;
   constructor(
     public dialogRef: MatDialogRef<WinnerPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.popMsg = 'Congratulations!';
+    this.employeeName = data['employee_name'];
+    this.employeeId = data['employee_id'];
   }
 }

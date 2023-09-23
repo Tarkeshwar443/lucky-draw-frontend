@@ -38,7 +38,17 @@ export class CreateEventsComponent {
   uploadFiles() {
     let excelObj = new FormData();
     excelObj.append('file', this.employeeList);
-    this.comSvc.uploadFiles(excelObj).subscribe({
+    this.comSvc.uploadEmployeeList(excelObj).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+    excelObj.delete('file');
+    excelObj.append('file', this.prizeList);
+    this.comSvc.uploadPrizeList(excelObj).subscribe({
       next: (res: any) => {
         console.log(res);
       },
