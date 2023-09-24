@@ -22,4 +22,12 @@ export class CommonService {
     const href = environment.BASE_API_URL + '/get_random_employee';
     return this.httpClient.get<any>(href);
   }
+  fetchPrizeName(id: number): Observable<any> {
+    const href = environment.BASE_API_URL + '/get_prize_name/?item_id=' + id;
+    return this.httpClient.get<any>(href);
+  }
+  fetchTotalPrizes(): Observable<any> {
+    const href = environment.BASE_API_URL + '/get_prize_number';
+    return this.httpClient.get<any>(href);
+  }
 }

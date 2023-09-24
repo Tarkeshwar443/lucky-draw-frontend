@@ -39,7 +39,12 @@
       "
     >
       <div style="display: flex; flex-direction: column; align-items: center">
-        <button mat-flat-button color="primary" (click)="startTimer()">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="startTimer()"
+          [disabled]="!idx"
+        >
           Spin Me!
         </button>
         <p style="color: red">Remaining prizes: {{ idx }}</p>

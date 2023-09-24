@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonService } from '../common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-events',
@@ -11,7 +12,7 @@ export class CreateEventsComponent {
   prizeListFileName: string = '';
   employeeList: any = '';
   prizeList: any = '';
-  constructor(public comSvc: CommonService) {}
+  constructor(public comSvc: CommonService, public router: Router) {}
   ngOnInit() {}
   uploadFile(fileType: any, file: any) {
     const action: string = fileType;
@@ -51,6 +52,7 @@ export class CreateEventsComponent {
     this.comSvc.uploadPrizeList(excelObj).subscribe({
       next: (res: any) => {
         console.log(res);
+        this.router.navigate(['prizeDashboard']);
       },
       error: (err: any) => {
         console.log(err);

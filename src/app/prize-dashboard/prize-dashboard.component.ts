@@ -18,34 +18,51 @@ export class PrizeDashboardComponent {
   winnerId: number = 123456789;
   counter: number = 5;
   interval: any;
-  idx: number = 10;
+  idx: number = 0;
   winnersList: winner[] = [];
   constructor(public comSvc: CommonService, public dialog: MatDialog) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.comSvc.fetchTotalPrizes().subscribe({
+      next: (res: any) => {
+        this.idx = res;
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+  }
   ngDoCheck() {
     if (this.counter == 0) {
       clearInterval(this.interval);
       this.counter = 5;
-      const data = this.comSvc.fetchRandomName().subscribe({
+      let data: any = '';
+      this.comSvc.fetchRandomName().subscribe({
         next: (res: any) => {
-          const winner: winner = {
-            sno: this.idx,
-            employeeId: res['employee_id'],
-            employeeName: res['employee_name'],
-            prize: 'TV',
-          };
-          this.winnersList.push(winner);
-          this.idx--;
-          return res;
+          this.comSvc.fetchPrizeName(this.idx).subscribe({
+            next: (prize: any) => {
+              const winner: winner = {
+                sno: this.idx,
+                employeeId: res['employee_id'],
+                employeeName: res['employee_name'],
+                prize: prize,
+              };
+              this.winnersList.push(winner);
+              this.idx--;
+              data = res;
+              const dialogRef = this.dialog.open(WinnerPopupComponent, {
+                height: '400px',
+                width: '700px',
+                data: data,
+              });
+            },
+            error: (err: any) => {
+              console.log(err);
+            },
+          });
         },
         error: (err: any) => {
-          return err;
+          console.log(err);
         },
-      });
-      const dialogRef = this.dialog.open(WinnerPopupComponent, {
-        height: '400px',
-        width: '700px',
-        data: data,
       });
     }
   }
