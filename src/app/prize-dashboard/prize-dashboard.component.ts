@@ -36,32 +36,39 @@ export class PrizeDashboardComponent {
       clearInterval(this.interval);
       this.counter = 5;
       let data: any = '';
-      this.comSvc.fetchRandomName().subscribe({
+      this.comSvc.updateDBSpin().subscribe({
         next: (res: any) => {
-          this.comSvc.fetchPrizeName(this.idx).subscribe({
-            next: (prize: any) => {
-              const winner: winner = {
-                sno: this.idx,
-                employeeId: res['employee_id'],
-                employeeName: res['employee_name'],
-                prize: prize,
-              };
-              this.winnersList.push(winner);
-              this.idx--;
-              data = res;
-              const dialogRef = this.dialog.open(WinnerPopupComponent, {
-                height: '400px',
-                width: '700px',
-                data: data,
+          this.comSvc.fetchRandomName().subscribe({
+            next: (res: any) => {
+              this.comSvc.fetchPrizeName(this.idx).subscribe({
+                next: (prize: any) => {
+                  const winner: winner = {
+                    sno: this.idx,
+                    employeeId: res['employee_id'],
+                    employeeName: res['employee_name'],
+                    prize: prize,
+                  };
+                  this.winnersList.push(winner);
+                  this.idx--;
+                  data = res;
+                  const dialogRef = this.dialog.open(WinnerPopupComponent, {
+                    height: '400px',
+                    width: '700px',
+                    data: data,
+                  });
+                },
+                error: (err: any) => {
+                  console.log('Error fetching prize name');
+                },
               });
             },
             error: (err: any) => {
-              console.log(err);
+              console.log('Error fetching employee name');
             },
           });
         },
         error: (err: any) => {
-          console.log(err);
+          console.log('Error updating DB on spin');
         },
       });
     }

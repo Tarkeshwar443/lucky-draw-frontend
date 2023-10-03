@@ -30,4 +30,12 @@ export class CommonService {
     const href = environment.BASE_API_URL + '/get_prize_number';
     return this.httpClient.get<any>(href);
   }
+  uploadEmployeeDataRemoteCsv(): Observable<any> {
+    const href = environment.BASE_API_URL + '/update-csv-onsubmit';
+    return this.httpClient.get<any>(href);
+  }
+  updateDBSpin(): Observable<any> {
+    const href = environment.BASE_API_URL + '/update-csv-onspin';
+    return this.httpClient.get<any>(href);
+  }
 }

@@ -28,26 +28,30 @@ export class CreateEventsComponent {
     }
   }
   checkValidation() {
-    if (
-      this.comSvc.eventName.trim() != '' &&
-      this.prizeListFileName &&
-      this.employeeListFileName
-    )
+    if (this.comSvc.eventName.trim() != '' && this.prizeListFileName)
       return false;
     return true;
   }
   uploadFiles() {
     let excelObj = new FormData();
-    excelObj.append('file', this.employeeList);
-    this.comSvc.uploadEmployeeList(excelObj).subscribe({
+    // excelObj.append('file', this.employeeList);
+    // this.comSvc.uploadEmployeeList(excelObj).subscribe({
+    //   next: (res: any) => {
+    //     console.log(res);
+    //   },
+    //   error: (err: any) => {
+    //     console.log(err);
+    //   },
+    // });
+    // excelObj.delete('file');
+    this.comSvc.uploadEmployeeDataRemoteCsv().subscribe({
       next: (res: any) => {
         console.log(res);
       },
       error: (err: any) => {
-        console.log(err);
+        console.log('Error updating DB with CSV');
       },
     });
-    excelObj.delete('file');
     excelObj.append('file', this.prizeList);
     this.comSvc.uploadPrizeList(excelObj).subscribe({
       next: (res: any) => {
@@ -55,7 +59,7 @@ export class CreateEventsComponent {
         this.router.navigate(['prizeDashboard']);
       },
       error: (err: any) => {
-        console.log(err);
+        console.log('Error inserting prizeList into DB');
       },
     });
   }
