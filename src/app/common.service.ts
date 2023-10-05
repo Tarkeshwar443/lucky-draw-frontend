@@ -38,4 +38,12 @@ export class CommonService {
     const href = environment.BASE_API_URL + '/update-csv-onspin';
     return this.httpClient.get<any>(href);
   }
+  saveWinnerDetails(winner: any): Observable<any> {
+    const href = environment.BASE_API_URL + '/store_data';
+    return this.httpClient.post<any>(href, winner);
+  }
+  getWinnerDetails(): Observable<any> {
+    const href = environment.BASE_API_URL + '/get_data';
+    return this.httpClient.get<any>(href);
+  }
 }

@@ -44,7 +44,7 @@
           mat-flat-button
           color="primary"
           (click)="startTimer()"
-          [disabled]="!idx"
+          [disabled]="!idx || !counter_flag"
         >
           Spin Me!
         </button>
@@ -79,10 +79,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let winner of winnersList">
-          <td>{{ winner["sno"] }}</td>
-          <td>{{ winner["employeeName"] }}</td>
-          <td>{{ winner["employeeId"] }}</td>
-          <td>{{ winner["prize"] }}</td>
+          <td>{{ winner["serial_number"] }}</td>
+          <td>{{ winner["EmpName"] }}</td>
+          <td>{{ winner["EmpID"] }}</td>
+          <td>{{ winner["prize_name"] }}</td>
         </tr>
       </tbody>
     </table>
