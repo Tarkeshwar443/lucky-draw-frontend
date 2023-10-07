@@ -8,8 +8,8 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 10px;
     height: 500px;
-    width: 900px;
-    padding: 40px 10px;
+    overflow: scroll;
+    padding-top: 50px;
   "
 >
   <div
@@ -21,15 +21,7 @@
   >
     {{ comSvc.eventName }}
   </div>
-  <div
-    style="
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 700px;
-      height: 600px;
-    "
-  >
+  <div style="display: flex; width: 700px; height: 600px; column-gap: 50px">
     <div
       style="
         display: flex;
@@ -37,6 +29,7 @@
         align-items: center;
         row-gap: 30px;
         height: 50%;
+        width: 20%;
       "
     >
       <div style="display: flex; flex-direction: column; align-items: center">
@@ -68,23 +61,40 @@
         </div>
       </div>
     </div>
-    <table width="500px">
-      <thead>
-        <tr>
-          <th>S.No</th>
-          <th>Employee name</th>
-          <th>Employee id</th>
-          <th>Prize</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let winner of winnersList">
-          <td>{{ winner["serial_number"] }}</td>
-          <td>{{ winner["EmpName"] }}</td>
-          <td>{{ winner["EmpID"] }}</td>
-          <td>{{ winner["prize_name"] }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div style="height: 400px; width: 78%">
+      <table width="500px">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Employee name</th>
+            <th>Employee id</th>
+            <th>Prize</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let winner of winnersList">
+            <td>{{ winner["serial_number"] }}</td>
+            <td>{{ winner["EmpName"] }}</td>
+            <td>{{ winner["EmpID"] }}</td>
+            <td>{{ winner["prize_name"] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 26%;
+        height: 100%;
+      "
+    >
+      <div style="width: 50%">
+        <strong> <p>Next prize</p></strong>
+      </div>
+      <img src="assets/prizes/img{{ this.idx }}.jpg " alt="" />
+    </div>
   </div>
 </div>

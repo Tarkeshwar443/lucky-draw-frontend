@@ -1,137 +1,140 @@
-<div
-  style="
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(238, 238, 79);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    border-radius: 10px;
-    height: 300px;
-    width: 800px;
-    padding: 40px 10px;
-  "
->
+<div style="display: flex; justify-content: center; width: 100%">
   <div
     style="
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      height: 80%;
-      row-gap: 40px;
+      flex-direction: column;
+      background-color: rgb(238, 238, 79);
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      border-radius: 10px;
+      height: 300px;
+      width: 70%;
+      padding: 40px 10px;
     "
   >
     <div
       style="
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-        width: 100%;
+        height: 80%;
+        row-gap: 40px;
       "
     >
-      <div style="width: 60%; font-size: 17px; font-weight: 500">
-        Event name
-      </div>
-      <input style="width: 70%" [(ngModel)]="comSvc.eventName" />
-    </div>
-
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 39px;
-      "
-    >
-      <div style="width: 33%; font-size: 17px; font-weight: 500">
-        Employee list
-      </div>
       <div
         style="
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          width: 62%;
+          align-items: center;
+          width: 100%;
         "
       >
-        <div style="width: 100%">
-          <button
-            style="width: 120px"
-            type="button"
-            mat-raised-button
-            (click)="fileInput.click()"
-          >
-            Choose File
-          </button>
+        <div style="width: 60%; font-size: 17px; font-weight: 500">
+          Event name
+        </div>
+        <input style="width: 70%" [(ngModel)]="comSvc.eventName" />
+      </div>
 
-          <input
-            hidden
-            (change)="uploadFile('employeeList', $event)"
-            #fileInput
-            type="file"
-            id="file"
-            accept=".xls,.xlsx"
-          />
-        </div>
-        <div title="{{ employeeListFileName }}" style="width: 20px">
-          {{ (employeeListFileName | slice : 0 : 8) + "..." }}
-        </div>
-      </div>
-    </div>
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 39px;
-      "
-    >
-      <div style="width: 33%; font-size: 17px; font-weight: 500">
-        Prize list
-      </div>
       <div
         style="
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          width: 56%;
+          align-items: center;
+          column-gap: 39px;
         "
       >
-        <div style="width: 100%">
-          <button
-            style="width: 120px"
-            type="button"
-            mat-raised-button
-            (click)="prizefileInput.click()"
-          >
-            Choose File
-          </button>
-
-          <input
-            hidden
-            (change)="uploadFile('prizeList', $event)"
-            #prizefileInput
-            type="file"
-            id="file"
-            accept=".xls,.xlsx"
-          />
+        <div style="width: 33%; font-size: 17px; font-weight: 500">
+          Employee list
         </div>
         <div
-          title="{{ prizeListFileName }}"
-          style="width: 20px; margin-left: 22px"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 62%;
+          "
         >
-          {{ (prizeListFileName | slice : 0 : 8) + "..." }}
+          <div style="width: 100%">
+            <button
+              style="width: 120px"
+              type="button"
+              mat-raised-button
+              (click)="fileInput.click()"
+            >
+              Choose File
+            </button>
+
+            <input
+              hidden
+              (change)="uploadFile('employeeList', $event)"
+              #fileInput
+              type="file"
+              id="file"
+              accept=".xls,.xlsx"
+            />
+          </div>
+          <div title="{{ employeeListFileName }}" style="width: 20px">
+            {{ (employeeListFileName | slice : 0 : 8) + "..." }}
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          column-gap: 39px;
+        "
+      >
+        <div style="width: 33%; font-size: 17px; font-weight: 500">
+          Prize list
+        </div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 56%;
+          "
+        >
+          <div style="width: 100%">
+            <button
+              style="width: 120px"
+              type="button"
+              mat-raised-button
+              (click)="prizefileInput.click()"
+            >
+              Choose File
+            </button>
+
+            <input
+              hidden
+              (change)="uploadFile('prizeList', $event)"
+              #prizefileInput
+              type="file"
+              id="file"
+              accept=".xls,.xlsx"
+            />
+          </div>
+          <div
+            title="{{ prizeListFileName }}"
+            style="width: 20px; margin-left: 22px"
+          >
+            {{ (prizeListFileName | slice : 0 : 8) + "..." }}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div style="display: flex; align-items: center; justify-content: center">
-    <button
-      mat-flat-button
-      color="primary"
-      [disabled]="checkValidation()"
-      (click)="uploadFiles()"
-    >
-      Submit
-    </button>
+    <div style="display: flex; align-items: center; justify-content: center">
+      <button
+        mat-flat-button
+        color="primary"
+        [disabled]="checkValidation()"
+        (click)="uploadFiles()"
+      >
+        Submit
+      </button>
+    </div>
   </div>
 </div>
