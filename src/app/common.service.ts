@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class CommonService {
-  eventName: string = 'Annual Day';
+  eventName: string = 'All Employee Meet';
   randomName: string = '';
   constructor(private httpClient: HttpClient) {}
   uploadEmployeeList(uploadObj: any): Observable<any> {

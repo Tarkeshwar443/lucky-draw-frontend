@@ -21,29 +21,32 @@
   >
     {{ comSvc.eventName }}
   </div>
-  <div style="display: flex; width: 700px; height: 600px; column-gap: 50px">
+  <div style="display: flex; height: 100%; column-gap: 20px">
     <div
       style="
         display: flex;
         flex-direction: column;
         align-items: center;
         row-gap: 30px;
-        height: 50%;
-        width: 20%;
       "
     >
+      <div>
+        <video height="330px" #video>
+          <source src="../../assets/video/spinWheel.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div style="display: flex; flex-direction: column; align-items: center">
         <button
           mat-flat-button
           color="primary"
           (click)="startTimer()"
-          [disabled]="!idx || !counter_flag"
+          [disabled]="!idx || !counterFlag"
         >
           Spin Me!
         </button>
         <p style="color: red">Remaining prizes: {{ idx }}</p>
       </div>
-      <div
+      <!-- <div
         style="
           display: flex;
           align-items: center;
@@ -59,10 +62,10 @@
         <div style="display: flex; justify-content: center; color: red">
           {{ this.counter }}
         </div>
-      </div>
+      </div> -->
     </div>
-    <div style="height: 400px; width: 78%">
-      <table width="500px">
+    <div style="height: 400px">
+      <table width="700px" style="font-size: 20px">
         <thead>
           <tr>
             <th>S.No</th>
@@ -87,14 +90,20 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 26%;
         height: 100%;
       "
     >
-      <div style="width: 50%">
-        <strong> <p>Next prize</p></strong>
+      <div>
+        <strong> Next prize</strong>
       </div>
-      <img src="assets/prizes/img{{ this.idx }}.jpg " alt="" />
+      <div>
+        <img
+          height="300px"
+          width="200px"
+          src="assets/prizes/img{{ this.idx }}.jpg "
+          alt="prize_picture"
+        />
+      </div>
     </div>
   </div>
 </div>

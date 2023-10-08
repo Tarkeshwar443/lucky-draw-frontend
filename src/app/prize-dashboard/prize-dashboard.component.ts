@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonService } from '../common.service';
 import { MatDialog } from '@angular/material/dialog';
 import { WinnerPopupComponent } from '../winner-popup/winner-popup.component';
@@ -14,13 +14,14 @@ export interface winner {
   styleUrls: ['./prize-dashboard.component.scss'],
 })
 export class PrizeDashboardComponent {
+  @ViewChild('video') myVideo!: ElementRef;
   winnerName: string = 'Tarkeshwar';
   winnerId: number = 123456789;
-  counter: number = 5;
+  counter: number = 7;
   interval: any;
-  idx: number = 0;
+  idx: number = 1;
   winnersList: winner[] = [];
-  counter_flag: boolean = true;
+  counterFlag: boolean = true;
   constructor(public comSvc: CommonService, public dialog: MatDialog) {}
   ngOnInit() {
     this.comSvc.fetchTotalPrizes().subscribe({
@@ -47,9 +48,11 @@ export class PrizeDashboardComponent {
   }
   ngDoCheck() {
     if (this.counter == 0) {
+      console.log('here');
       clearInterval(this.interval);
-      this.counter_flag = true;
-      this.counter = 5;
+      this.counterFlag = true;
+      this.counter = 7;
+      this.myVideo.nativeElement.pause();
       let data: any = '';
       this.comSvc.updateDBSpin().subscribe({
         next: (res: any) => {
@@ -100,7 +103,8 @@ export class PrizeDashboardComponent {
     this.interval = setInterval(() => {
       if (this.counter) {
         this.counter--;
-        this.counter_flag = false;
+        this.counterFlag = false;
+        this.myVideo.nativeElement.play();
       }
     }, 1000);
   }
