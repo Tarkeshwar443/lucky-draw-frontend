@@ -1,4 +1,19 @@
 <div
+  *ngIf="data['action'] == 'prize'"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+  "
+>
+  <p>
+    <strong>{{ data["prize_name"] }}</strong>
+  </p>
+  <img src="assets/prizes/img{{ data['imageNo'] }}.jpg" alt="" />
+</div>
+<div
   style="
     background-image: url(../../assets/img/winner.jpg);
     height: 100%;
@@ -7,6 +22,7 @@
     justify-content: center;
     width: 100%;
   "
+  *ngIf="data['action'] == 'winner'"
 >
   <div
     style="

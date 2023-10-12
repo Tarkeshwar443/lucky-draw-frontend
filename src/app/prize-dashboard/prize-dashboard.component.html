@@ -32,14 +32,14 @@
     >
       <div>
         <video height="330px" #video>
-          <source src="../../assets/video/spinWheel.mp4" type="video/mp4" />
+          <source src="../../assets/video/spinWheel1.mp4" type="video/mp4" />
         </video>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center">
         <button
           mat-flat-button
           color="primary"
-          (click)="startTimer()"
+          (click)="startPrizeTimer()"
           [disabled]="!idx || !counterFlag"
         >
           Spin Me!
@@ -84,7 +84,7 @@
         </tbody>
       </table>
     </div>
-    <div
+    <!-- <div
       style="
         display: flex;
         flex-direction: column;
@@ -104,6 +104,6 @@
           alt="prize_picture"
         />
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

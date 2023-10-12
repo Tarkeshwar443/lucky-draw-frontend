@@ -13,7 +13,9 @@ export class WinnerPopupComponent {
     public dialogRef: MatDialogRef<WinnerPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.employeeName = data['employee_name'];
-    this.employeeId = data['employee_id'];
+    if (data['res']) {
+      this.employeeName = data['res']['employee_name'];
+      this.employeeId = data['res']['employee_id'];
+    }
   }
 }
