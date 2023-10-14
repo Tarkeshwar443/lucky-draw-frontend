@@ -1,21 +1,37 @@
-<mat-toolbar color="primary" class="flexVerticalCenter">
-  <div style="width: 35%">Lucky Draw App</div>
-  <div style="display: flex; justify-content: center; width: 29%">
-    <div style="display: flex">
-      <div class="navButton" routerLink="/prizeDashboard">Prize Dashboard</div>
-      <div class="navButton" routerLink="/createEvent">Add event</div>
+<div style="display: flex; flex-direction: column; row-gap: 120px">
+  <mat-toolbar color="primary" class="flexVerticalCenter">
+    <div style="width: 35%; font-size: 3vh">Lucky Draw App</div>
+    <div style="display: flex; justify-content: center; width: 29%">
+      <div style="display: flex; column-gap: 10px">
+        <div
+          class="navButton"
+          routerLink="/prizeDashboard"
+          routerLinkActive="active-link"
+          style="font-size: 3vh"
+        >
+          Prize Dashboard
+        </div>
+        <div
+          class="navButton"
+          routerLink="/createEvent"
+          routerLinkActive="active-link"
+          style="font-size: 3vh"
+        >
+          Add event
+        </div>
+      </div>
     </div>
-  </div>
-</mat-toolbar>
-<div
-  style="
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-  "
->
-  <div style="width: 80%">
-    <router-outlet></router-outlet>
+  </mat-toolbar>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 0%;
+    "
+  >
+    <div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

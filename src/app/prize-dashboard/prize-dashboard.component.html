@@ -7,17 +7,13 @@
     background-color: rgb(238, 238, 79);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 10px;
-    height: 500px;
+    height: 60vh;
     overflow: scroll;
-    padding-top: 50px;
+    padding: 5vh 3vh 0vh;
   "
 >
   <div
-    style="
-      font-size: 50px;
-      font-family: Segoe Print;
-      text-decoration: underline;
-    "
+    style="font-size: 5vh; font-family: Segoe Print; text-decoration: underline"
   >
     {{ comSvc.eventName }}
   </div>
@@ -41,10 +37,13 @@
           color="primary"
           (click)="startPrizeTimer()"
           [disabled]="!idx || !counterFlag"
+          style="width: 7vw; font-size: 2vh; height: 5vh"
         >
           Spin Me!
         </button>
-        <p style="color: red">Remaining prizes: {{ idx }}</p>
+        <p style="color: red; font-size: 2vh">
+          <strong>Remaining prizes: {{ idx }}</strong>
+        </p>
       </div>
       <!-- <div
         style="
@@ -65,7 +64,7 @@
       </div> -->
     </div>
     <div style="height: 400px">
-      <table width="700px" style="font-size: 20px">
+      <table width="1400vw" style="font-size: 3.5vh">
         <thead>
           <tr>
             <th>S.No</th>

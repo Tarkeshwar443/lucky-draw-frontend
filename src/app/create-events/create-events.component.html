@@ -8,9 +8,10 @@
       background-color: rgb(238, 238, 79);
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       border-radius: 10px;
-      height: 300px;
-      width: 70%;
-      padding: 40px 10px;
+      height: 40vh;
+      overflow: scroll;
+      padding: 5vh 3vh 0vh;
+      width: 25vw;
     "
   >
     <div
@@ -30,10 +31,10 @@
           width: 100%;
         "
       >
-        <div style="width: 60%; font-size: 17px; font-weight: 500">
+        <div style="width: 60%; font-size: 2vh; font-weight: 500">
           Event name
         </div>
-        <input style="width: 70%" [(ngModel)]="comSvc.eventName" />
+        <input style="width: 15vw" [(ngModel)]="comSvc.eventName" />
       </div>
 
       <div
@@ -44,7 +45,7 @@
           column-gap: 39px;
         "
       >
-        <div style="width: 33%; font-size: 17px; font-weight: 500">
+        <div style="width: 33%; font-size: 2vh; font-weight: 500">
           Employee list
         </div>
         <div
@@ -57,7 +58,7 @@
         >
           <div style="width: 100%">
             <button
-              style="width: 120px"
+              style="width: 9vw; font-size: 2vh; height: 5vh"
               type="button"
               mat-raised-button
               (click)="fileInput.click()"
@@ -87,7 +88,7 @@
           column-gap: 39px;
         "
       >
-        <div style="width: 33%; font-size: 17px; font-weight: 500">
+        <div style="width: 33%; font-size: 2vh; font-weight: 500">
           Prize list
         </div>
         <div
@@ -100,7 +101,7 @@
         >
           <div style="width: 100%">
             <button
-              style="width: 120px"
+              style="width: 9vw; font-size: 2vh; height: 5vh"
               type="button"
               mat-raised-button
               (click)="prizefileInput.click()"
